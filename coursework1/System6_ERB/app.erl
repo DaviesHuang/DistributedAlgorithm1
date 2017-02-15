@@ -14,7 +14,6 @@ start(Id) ->
         Id == 3 -> erlang:send_after(100, self(), timeout);
         true -> erlang:send_after(Timeout, self(), timeout)
       end,
-      io:format("App ~p received start task~n", [Id]),
       broadcast_msg(Id, Erb, Max_messages, 0, Received, 1)
   end.
 
